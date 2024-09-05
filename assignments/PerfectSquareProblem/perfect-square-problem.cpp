@@ -13,6 +13,7 @@ int main() {
 	}
 	if ((current_square % 10)% 2 == 1 && (((current_square / 10) % 10)%2 == 1)){ //Check if last two digits are odd
 		cout << current_int << " To the power of 2 is " << current_square << endl; //If true then print out base and perfect square
+		cout << "BUT!! if we take "<< current_square << " and dvide it by " << current_int << " we get " << (double)current_square/current_int << " ,which is not a perfect square" << endl;
 		break;
 	}
 	else {
