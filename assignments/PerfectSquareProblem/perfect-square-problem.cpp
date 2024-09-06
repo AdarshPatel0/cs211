@@ -7,9 +7,10 @@ int main() {
   int current_int = 0;
   while (true) {
 	int current_square = current_int * current_int; //Get the square of our base
+	cout << current_square << " " << current_int << endl;
 	if ((current_square % 10)% 2 == 1 && (((current_square / 10) % 10)%2 == 1)){ //Check if last two digits are odd
 		cout << current_int << " To the power of 2 is " << current_square << endl; //If true then print out base and perfect square
-		cout << "BUT!! if we take "<< current_square << " and dvide it by " << current_int << " we get " << (double)current_square/current_int << ",which indicates that this is NOT a perfect square." << endl;
+		cout << "BUT!! if we take "<< current_square << " and dvide it by " << current_int << " we get " << current_square/current_int << ", which indicates that this is NOT a perfect square." << endl;
 		break;
 	}
 	else {
@@ -23,4 +24,4 @@ int main() {
 // and we are left with a false perfect sqaure of 131073 which is NOT 65537^2.
 // 65537^2 is 4,295,098,369, which goes over the 32bit integer limit of 4,294,967,296
 // This is how we can calculate our false square:
-//-4,294,967,296 + 4,295,098,369 = 131,073
+// 4,295,098,369 - 4,294,967,296 = 131,073
