@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -8,6 +9,8 @@ class game{
 	public:
 	int board[boardDim][boardDim]={};
 	int queensAvailable = 8;
+	bool fail = false;
+	vector<int> selectOrder = {};
 	void placeQueen(int x ,int y){
 		for(int i = 0; i<boardDim-1;i++){
 			board[i][y]=1;
@@ -15,26 +18,22 @@ class game{
 		}
 		for(int i = x; i<boardDim-1;i++){
 			int yPosA=y+i-x;
-			cout << yPosA << endl;
 			if(yPosA>=0 && yPosA<=boardDim-1){
-				board[i][yPosA]=1;
+				board[i][yPosA] = (board[i][yPosA]==2) ? 2:1;
 			}
 			int yPosB=y-(i-x);
-			cout << yPosB << endl;
 			if(yPosB>=0 && yPosB<=boardDim-1){
-				board[i][yPosB]=1;
+				board[i][yPosB] = (board[i][yPosB]==2) ? 2:1;
 			}
 		}
 		for(int i = x; i>=0;i--){
 			int yPosA=y+i-x;
-			cout << yPosA << endl;
 			if(yPosA>=0 && yPosA<=boardDim-1){
-				board[i][yPosA]=1;
+				board[i][yPosA] = (board[i][yPosA]==2) ? 2:1;
 			}
 			int yPosB=y-(i-x);
-			cout << yPosB << endl;
 			if(yPosB>=0 && yPosB<=boardDim-1){
-				board[i][yPosB]=1;
+				board[i][yPosB] = (board[i][yPosB]==2) ? 2:1;
 			}
 		}
 		board[x][y] = 2;
@@ -63,9 +62,10 @@ void printBoard(game obj){
 }
 
 int main(){
-	game currentGame;
-	currentGame.placeQueen(4,4);
-	printBoard(currentGame);
-	cout << currentGame.spotsAvailable();
+	vector<game> games = {};
+	while (true) {
+		
+	}
+
 	return 0;
 }
