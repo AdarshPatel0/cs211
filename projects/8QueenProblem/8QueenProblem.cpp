@@ -41,20 +41,9 @@ bool verifyBoard(char board[]){
 			}
 		}
 	}
-	//Up & Down is clear
-	// for(int i=0;i<8;i++){
-	// 	for(int j=0;j<8;j++){
-	// 		cout << rowMap[board[i]][j];
-	// 	}
-	// 	cout << endl;
-	// }
 	for(int i = 0;i<7;i++){
-		// cout<< "checking for diagnols on row " << i<< endl;
-		// cout<< "Rows to compare: " << 7-i << endl;
 		for(int j = 1;j<8-i;j++){
-			// cout << "Comparing " <<i+j << " to " << i<< endl;
 			if(board[i]+j==board[i+j]||board[i]-j==board[i+j]){
-				// cout << "Fault at: " << i << " cmp to " << i+j << endl;
 				return false;
 			}
 		}
@@ -98,10 +87,5 @@ int main(){
 	}
 	cout << generatedCounter << " generated combinations" << endl;
 	cout << validCounter << " valid combinations" << endl;
-	cout << validBoards[100] << endl;
-	// printBoard(validBoards[100]);
-	// char test[8] = {1,2,7,3,6,4,5};
-	// verifyBoard(test);
-	// printBoard(1273645);
 	return 0;
 }
