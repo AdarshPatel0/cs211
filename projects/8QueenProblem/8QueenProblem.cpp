@@ -85,7 +85,11 @@ int main(){
 		incrementBoard(currentBoard, 0, overflow);
 		generatedCounter++;
 	}
-	cout << generatedCounter << " generated combinations" << endl;
-	cout << validCounter << " valid combinations" << endl;
+	cout << generatedCounter << " possible combinations." << endl;
+	cout << validCounter << " valid combinations." << endl;
+	cout << "Printing all solutions..." << endl;
+	for(int i = 0;i<validBoards.size();i++){
+		printBoard(validBoards[i]);
+	}
 	return 0;
 }
