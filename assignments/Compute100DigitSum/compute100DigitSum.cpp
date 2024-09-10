@@ -27,8 +27,9 @@ int main() {
 	}
 	bool carryOver = false; //Saves data out of loop if carry over is needed
 	int i = maxLength-1;
+	int baseSum;
 	for(int i = maxLength-1; i>=0;i--){ 
-		int baseSum = numA[i] + numB[i] - (2*'0') + carryOver; //Add digits of the same base including carry over amount. (The digits are character types and are converted into integer types by subtracting their ASCII value.)
+		baseSum = numA[i] + numB[i] - (2*'0') + carryOver; //Add digits of the same base including carry over amount. (The digits are character types and are converted into integer types by subtracting their ASCII value.)
 		carryOver = false; //Cerry over has been added, so it is set to false/0.
 		if (baseSum > 9){ //If base exceeds 9 then it must be carried over by removing the extra base and storing it in our carry over variable.
 			carryOver = true;
