@@ -33,7 +33,7 @@ int main() {
 		carryOver = false; //Cerry over has been added, so it is set to false/0.
 		if (baseSum > 9){ //If base exceeds 9 then it must be carried over by removing the extra base and storing it in our carry over variable.
 			carryOver = true;
-			baseSum-=10;
+			baseSum=baseSum%10;
 		}
 		sum.insert(0,1,baseSum+'0'); //Inserts the sum of the base into the front of the string. (baseSum has to be converted into a character by adding the ASCII value for numbers.)
 	}
