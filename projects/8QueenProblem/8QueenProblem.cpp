@@ -16,6 +16,7 @@ bool const rowMap[8][8]={
 };
 
 unsigned char const valueMap[8]={1,2,4,8,16,32,64,128};
+
 void incrementBoard(char currentBoard[],int i,bool &overflow){
 	int baseSum = currentBoard[i]+1;
 	if(baseSum>7){
@@ -75,7 +76,7 @@ void printBoard(int combo){
 	for(int i=0;i<8;i++){
 		int glyph = ((int)(combo/pow(10, i))%10);
 		for(int j=0;j<8;j++){
-			cout << rowMap[glyph][j];
+			cout << rowMap[glyph][j]<< " ";
 		}
 		cout << endl;
 	}
