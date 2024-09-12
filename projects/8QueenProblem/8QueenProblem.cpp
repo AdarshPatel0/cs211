@@ -15,6 +15,7 @@ bool const rowMap[8][8]={
 {0,0,0,0,0,0,0,1}
 };
 
+unsigned char const valueMap[8]={1,2,4,8,16,32,64,128};
 void incrementBoard(char currentBoard[],int i,bool &overflow){
 	int baseSum = currentBoard[i]+1;
 	if(baseSum>7){
@@ -30,6 +31,24 @@ void incrementBoard(char currentBoard[],int i,bool &overflow){
 	else {
 		currentBoard[i]=baseSum;
 	}
+}
+unsigned char checkSum(char board[]){
+	unsigned char sum = 0;
+	for(int i=0; i<8;i++){
+		sum+=valueMap[board[i]];
+	}
+	return sum;
+}
+
+bool checkDiagnol(char board[]){
+	for(int i = 0;i<7;i++){
+		for(int j = 1;j<8-i;j++){
+			if(board[i]+j==board[i+j]||board[i]-j==board[i+j]){
+				return false;
+			}
+		}
+	}
+	return true;
 }
 
 bool verifyBoard(char board[]){
@@ -79,12 +98,15 @@ int main(){
 	int generatedCounter = 0;
 	int validCounter = 0;
 	while (overflow==false) {
-		if(verifyBoard(currentBoard)==true){
+		// if(verifyBoard(currentBoard)==true){
+		// 	validBoards.push_back(convertToInt(currentBoard));
+		// 	validCounter++;
+		// }
+		if(checkSum(currentBoard)==255&&checkDiagnol(currentBoard)){
 			validBoards.push_back(convertToInt(currentBoard));
 			validCounter++;
 		}
 		incrementBoard(currentBoard, 0, overflow);
-		generatedCounter++;
 	}
 	cout << generatedCounter << " possible combinations." << endl;
 	cout << validCounter << " valid combinations." << endl;
