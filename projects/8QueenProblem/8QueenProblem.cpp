@@ -20,6 +20,7 @@ void incrementBoard(char currentBoard[],int i,bool &overflow){
 	if(baseSum>7){
 		baseSum=0;
 		if(i+1>7){
+			cout << "Overflow!" << endl;
 			overflow = true;
 			return;
 		}
@@ -74,7 +75,7 @@ int convertToInt(char board[]){
 int main(){
 	vector<int> validBoards = {};
 	bool overflow = false;
-	char currentBoard[8] = {};
+	char currentBoard[8] = {7,6,5,4,3,2,1,0};
 	int generatedCounter = 0;
 	int validCounter = 0;
 	while (overflow==false) {
