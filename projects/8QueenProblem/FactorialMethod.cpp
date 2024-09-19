@@ -25,11 +25,13 @@ bool checkDiagonal(char board[]){
 }
 
 void buildBoard(char route[],int & routes){
-	vector<char> pool = {0,1,2,3,4,5,6,7};
+	// vector<char> pool = {0,1,2,3,4,5,6,7};
+	string pool = "01234567";
 	char board[8]={};
 	for(char i=7;i>=0;i--){
-		board[i]=pool[route[i]];
-		pool.erase(pool.begin()+route[i]);
+		board[i]=pool[route[i]]-'0';
+		cout << route[i];
+		pool.erase(route[i],1);
 	}
 	if(checkDiagonal(board)){
 		printBoard(board);
