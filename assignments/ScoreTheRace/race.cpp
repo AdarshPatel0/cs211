@@ -5,6 +5,7 @@ using namespace std;
 
 int main(){
 	begining:
+	//The index of the arrays represent the team name.
 	int memberCounter[26] = {}; //Holds data of people per team.
 	int teamScoreCounter[26] = {}; //Holds data of a teams total score without average.
 	int perteam = 0;
