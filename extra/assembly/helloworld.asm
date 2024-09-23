@@ -15,7 +15,7 @@ end:
 jmp $
 
 myString:
-    db "Hello World!"
+    db "Hello World!\nThis is a string!"
 
 times 510-($-$$) db 0
 dw 0xaa55
