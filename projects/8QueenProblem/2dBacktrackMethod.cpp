@@ -3,38 +3,37 @@
 using namespace std;
 
 int main(){
-	int counter = 0;
+	int numSolutions = 0;
 	int b[8][8]={},r,c=0;
 	b[0][0]=1;
-nc: c++;
+nextCol: c++;
 	if(c==8) goto print;
 	r=-1;
-nr: r++;
+nextRow: r++;
 	if(r==8) goto backtrack;
 	//row test
 	for(int i = 0; i < c; i++)
-		if(b[r][i]==1) goto nr;
-	for(int i = 1; i<=c and i<=r; i++)
-		if(b[r-i][c-i]==1) goto nr;
-	for(int i = 1; (c-i)>=0 and (r+i)<8; i++)
-		if(b[r+i][c-i]==1) goto nr;
+		if(b[r][i]==1) goto nextRow;
+	for(int i = 1; i<=c && i<=r; i++)
+		if(b[r-i][c-i]==1) goto nextRow;
+	for(int i = 1; (c-i)>=0 && (r+i)<8; i++)
+		if(b[r+i][c-i]==1) goto nextRow;
 	b[r][c]=1;
-	goto nc;
+	goto nextCol;
 backtrack: c--;
 	if(c==-1) return 0;
 	r=0;
 	while(b[r][c]!=1) r++;
 	b[r][c]=0;
-	goto nr;
+	goto nextRow;
 print:
-	counter++;
+	cout << "Solution #" << ++numSolutions << ":\n"; //I Had to switch this to pre-increment since we start off at zero.
 	for(int i = 0; i < 8 ;i++){
 		for(int j = 0; j < 8;j++){
 			cout << b[i][j] << " ";
 		}
 		cout << endl;
 	}
-	cout << "Solution " << counter << endl;
 	cout << endl;
 	goto backtrack;
 }
