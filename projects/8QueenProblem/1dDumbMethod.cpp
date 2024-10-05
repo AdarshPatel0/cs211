@@ -1,10 +1,14 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 bool ok(int q[]){
 	for(int i=0;i<8;i++){
 		for(int j=0;j<8;j++){
 			if(i!=j && q[i]==q[j]){
+				return false;
+			}
+			if(i!=j && abs(i-j)==abs(q[i]-q[j])){
 				return false;
 			}
 		}
