@@ -33,15 +33,17 @@ backtrack:
     q[c]=0;
     c--;
     if(c==-1){
-        cout << counter << endl;
+        cout << counter << " solutions found." << endl;
         return 0;
     }
     goto nr;
 print:
     counter++;
-    for(int i = 0; i < 8; i++){
-        cout << q[i];
-    }
-    cout << endl;
+    // for(int i = 0; i < 8; i++){
+    //     cout << q[i];
+    // }
+    cout << " " << q[0] << q[1] << endl;
+    cout << q[2] << q[3] << q[4] << q[5] << endl;
+    cout << " " << q[6] << q[7] << endl << endl;
     goto backtrack;
 }
