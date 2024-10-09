@@ -47,7 +47,7 @@ int main(){
 		c++;
 		if(c==8){
 			print(q, counter);
-			c--;
+			c=6;
 		}
 	}
 	return 0;
