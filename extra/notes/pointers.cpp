@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <cmath>
 using namespace std;
 
 int main(){
@@ -7,7 +7,7 @@ int main(){
     int* arr_begin = &myNums[0];
     int* arr_end = &myNums[4];
     for(int* current = arr_begin; current< arr_end ;current++){
-        cout << current << " " << *current << endl;
+        cout << abs(current - arr_begin) << " " << *current << endl;
     }
     return 0;
 }
