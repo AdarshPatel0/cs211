@@ -3,12 +3,11 @@
 using namespace std;
 
 int main(){
-    int myNum = 2024;
-    int* pointer = &myNum;
-    cout << "This is my number by reference : " << myNum << endl;
-    cout << "This is the memory address of my number : " << pointer << endl;
-    cout << "This is my number by pointer : " << *pointer << endl;
-    *pointer+=1;
-    cout << "This is 1 plus my number : " << myNum << endl;
+    int myNums[4] = {1,2,3,4};
+    int* arr_begin = &myNums[0];
+    int* arr_end = &myNums[4];
+    for(int* current = arr_begin; current< arr_end ;current++){
+        cout << arr_end - current << " " << *current;
+    }
     return 0;
 }
