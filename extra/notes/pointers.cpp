@@ -7,7 +7,7 @@ int main(){
     int* arr_begin = &myNums[0];
     int* arr_end = &myNums[4];
     for(int* current = arr_begin; current< arr_end ;current++){
-        cout << arr_end - current << " " << *current;
+        cout << current << " " << *current << endl;
     }
     return 0;
 }
