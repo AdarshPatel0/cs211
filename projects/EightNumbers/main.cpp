@@ -38,7 +38,7 @@ int main() {
    int q[8] = {};   // Initialize the array to 0.
    // Start in the 1st value, 1st box
    int c = 0;
-   q[c] = 0;
+   q[c] = 1;
    while (c >= 0) { // this loop ends when you backtrack from the first box like when c is 1
       // Move to the next box
 	  c++;
