@@ -30,7 +30,7 @@ void print(int cross[]) {
 	cout << " Solution number: " << ++count << endl;
 	cout << " " << cross[1] << cross[2] << endl;
 	cout << cross[0] << cross[3] << cross[4] << cross[5] << endl;
-	cout << " " << cross[6] << cross[7] << endl;
+	cout << " " << cross[6] << cross[7] << endl << endl;
 	return;
 }
 
