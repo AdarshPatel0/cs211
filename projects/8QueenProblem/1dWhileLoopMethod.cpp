@@ -18,7 +18,7 @@ void print(int board[]) {
   // everytime this function is called, count will not reset to 0 since it is static
   // static means the variable is allocated only once during the runtime of the program
 	static int count = 0;
-	cout << " Solution number: " << ++count << endl;
+	cout << "Solution number: " << ++count << endl;
 	for(int i = 0;i<8;i++){ //Simple nested for loop to print our board
 		for(int j = 0;j<8;j++){
 			cout << ((j==board[i])?"1 ":"0 ");
@@ -32,11 +32,9 @@ void print(int board[]) {
 int main() {
    int q[8] = {};   // Initialize the array to 0.
    // Start in the 1st value, 1st box
-   int c = -1;
+   int c = 0;
    q[c] = -1;
-   while (c >= -1) { // this loop ends when you backtrack from the first box like when c is 1
-      // Move to the next box
-	  c++;
+   while (c >= 0) { // this loop ends when you backtrack from the first box like when c is 1
       // If you have passed the last box,
          // Call the print function and backtrack
 	if(c==8){
@@ -57,6 +55,8 @@ int main() {
          // Else If the ok function it returns true, break out of this loop to move on from the outer loop
       }
       if (c==-1) break;
+	// Move to the next box
+	  c++;
    }
    return 0;
 }
