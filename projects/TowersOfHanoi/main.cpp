@@ -3,15 +3,18 @@
 using namespace std;
 
 int main(){
+	const int disks = 4;
 	vector<int> t[3]{};
-	t[0] = {2,1,0};
+	for(int i = disks-1; i>=0; i--){
+		t[0].push_back(i);
+	}
 	int ct = -1;
-	while(t[1].size()<3){
+	while(t[1].size()<disks){
 		ct++;
 		if(ct == 3) ct = 0;
 		if(t[ct].size()==0) continue;
 		int smallest_disk = t[ct].back(); //Get the disk on top of current tower.
-		if(ct==1 && smallest_disk==2) continue; //If the smallest disk is the largest disk in the final position, then skip the current tower and go to the next tower.
+		if(ct==1 && smallest_disk==disks-1) continue; //If the smallest disk is the largest disk in the final position, then skip the current tower and go to the next tower.
 		int i = 1; //We only want to compare the other two towers
 		while(i<3){ //Comparison Loop
 			if((t[(ct+i)%3].size()==0)||(smallest_disk <t[(ct+i)%3].back())){ //If the comparison tower is empty or the disk can go onto the tower then place is there.
