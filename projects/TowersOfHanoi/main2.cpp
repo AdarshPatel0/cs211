@@ -4,13 +4,13 @@
 
 using namespace std;
 
-const int disks = 3;
-const int towers = 4;
-const int target_tower = 2;
+const int disks = 5;
+const int towers = 3;
+const int target_tower = 1+(towers%2==0);
 
 void printTowers(vector<int>t[towers]){
 	for(int i = 0; i < towers;i++){
-		cout << (char)(i+'a');
+		cout << (char)(i+'A');
 		for(int j = 0; j < t[i].size(); j++){
 			cout << "|" << t[i][j];
 		}
@@ -19,7 +19,6 @@ void printTowers(vector<int>t[towers]){
 }
 
 int main(){
-    int targetkeep = disks-1;
 	vector<int> t[towers]{};
 	for(int i = disks-1; i>=0; i--){
 		t[0].push_back(i);
