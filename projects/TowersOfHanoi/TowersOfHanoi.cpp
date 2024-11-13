@@ -30,20 +30,20 @@ int main(){
 		t[0].push_back(i);
 	}
 	printTowers(t);
-	int ct = -1 * direction;
+	int from_tower = -1 * direction;
 	while(t[target_tower].size()<disks){
-		ct+= direction;
-		ct = mod(ct,towers);
-		if(t[ct].size()==0) continue; 
-		int smallest_disk = t[ct].back(); //Get the disk on top of current tower.
-		if(ct==target_tower && disks-smallest_disk==t[ct].size()) continue;
+		from_tower+= direction;
+		from_tower = mod(from_tower,towers);
+		if(t[from_tower].size()==0) continue; 
+		int canidate = t[from_tower].back(); //Get the disk on top of current tower.
+		if(from_tower==target_tower && disks-canidate==t[from_tower].size()) continue;
 		for(int i = 1; i < towers; i++){//Compare current tower to the other ones
-			int selected_tower = mod(ct+(i*direction),towers);
-			if((t[selected_tower].size()==0)||(smallest_disk <t[selected_tower].back())){ //If the comparison tower is empty or the disk can go onto the tower then place is there.
-				cout << "Move " << smallest_disk << " from " << (char)(ct+'A') << " to " << (char)(selected_tower+'A') << endl;
-				t[ct].pop_back(); //Remove disk from current tower.
-				t[selected_tower].push_back(smallest_disk); //Add disk to the comparison tower.
-				ct = selected_tower;
+			int to_tower = mod(from_tower+(i*direction),towers);
+			if((t[to_tower].size()==0)||(canidate <t[to_tower].back())){ //If the comparison tower is empty or the disk can go onto the tower then place is there.
+				cout << "Move " << canidate << " from " << (char)(from_tower+'A') << " to " << (char)(to_tower+'A') << endl;
+				t[from_tower].pop_back(); //Remove disk from current tower.
+				t[to_tower].push_back(canidate); //Add disk to the comparison tower.
+				from_tower = to_tower;//Set tower to 
 				printTowers(t);
 				counter++;
 				break;
