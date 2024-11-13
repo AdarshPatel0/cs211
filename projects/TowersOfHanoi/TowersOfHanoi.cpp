@@ -37,10 +37,8 @@ int main(){
 		if(t[ct].size()==0) continue; 
 		int smallest_disk = t[ct].back(); //Get the disk on top of current tower.
 		if(ct==target_tower && disks-smallest_disk==t[ct].size()) continue;
-		int i = 1; //We only want to compare the other towers
-		while(i<towers){ //Comparison Loop
+		for(int i = 1; i < towers; i++){//Compare current tower to the other ones
 			int selected_tower = mod(ct+(i*direction),towers);
-			// cout << ct << " " << selected_tower << endl;
 			if((t[selected_tower].size()==0)||(smallest_disk <t[selected_tower].back())){ //If the comparison tower is empty or the disk can go onto the tower then place is there.
 				cout << "Move " << smallest_disk << " from " << (char)(ct+'A') << " to " << (char)(selected_tower+'A') << endl;
 				t[ct].pop_back(); //Remove disk from current tower.
@@ -50,7 +48,6 @@ int main(){
 				counter++;
 				break;
 			}
-			i++;
 		}
 		usleep(100000);
 	}
