@@ -1,15 +1,11 @@
 #include <iostream>
 
 using namespace std;
-
+int mod(int a, int b){
+	int v = (b+(a%b))%b;
+	return v;
+}
 int main(){
-	setlocale(LC_ALL, "en_US.UTF-8");
-	wcout << int(L'┐') << endl;
-	wcout << int(L'┌') << endl;
-	wcout << int(L'└') << endl;
-	wcout << int(L'┘') << endl;
-	wcout << int(L'│') << endl;
-	wcout << int(L'─') << endl;
-	wcout << wchar_t(9608) << endl;
+	cout << mod(-2,3) << endl;
 	return 0;
 }
