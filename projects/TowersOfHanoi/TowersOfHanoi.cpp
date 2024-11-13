@@ -52,7 +52,7 @@ int main(){
 			}
 			i++;
 		}
-		usleep(500000);
+		usleep(100000);
 	}
 	cout << "Steps taken: " << counter << endl;
 	return 0;
