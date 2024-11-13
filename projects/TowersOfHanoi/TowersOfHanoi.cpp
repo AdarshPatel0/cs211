@@ -19,9 +19,8 @@ void printTowers(vector<int>t[towers]){
 	}
 }
 
-int mod(int a, int b){
-	int v = (b+(a%b))%b;
-	return v;
+int mod(int a, int b){ //Methamatically Correct modulo operation
+	return (b+(a%b))%b;
 }
 
 int main(){
@@ -46,7 +45,7 @@ int main(){
 				cout << "Move " << smallest_disk << " from " << (char)(ct+'A') << " to " << (char)(selected_tower+'A') << endl;
 				t[ct].pop_back(); //Remove disk from current tower.
 				t[selected_tower].push_back(smallest_disk); //Add disk to the comparison tower.
-                ct = selected_tower;
+				ct = selected_tower;
 				printTowers(t);
 				counter++;
 				break;
