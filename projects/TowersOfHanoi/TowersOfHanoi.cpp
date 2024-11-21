@@ -4,7 +4,7 @@
 
 using namespace std;
 
-const int disks = 4;
+const int disks = 3;
 const int towers = 3;
 const int target_tower = 1;
 const int direction = ((disks+target_tower)%2==0) ? 1 : -1;
