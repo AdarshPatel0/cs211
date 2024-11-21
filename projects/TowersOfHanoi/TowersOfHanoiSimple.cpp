@@ -14,7 +14,7 @@ void printTowers(vector<int>t[3]){
 }
 
 int main(){
-	int disks = 4;
+	int disks = 3;
 	int from = 0, to = (disks%2==0)?2:1, canidate = 1, moves = 0;
 	
 	vector <int> towers[3];
