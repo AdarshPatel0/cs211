@@ -13,7 +13,7 @@ void printTowers(vector<int>t[3]){
 	for(int i = 0; i < 3;i++){//Loop throught the array of vectors
 		cout << (char)(i+'A'); //Print the towers name
 		for(int j = 0; j < t[i].size(); j++){ //Loop throught the vector of disks
-			if(t[i][j] != disks) cout << "|" << t[i][j]; //Onlt print the disk if it is not a padded value
+			if(t[i][j] != disks+1) cout << "|" << t[i][j]; //Onlt print the disk if it is not a padded value
 		}
 		cout << endl;
 	}
