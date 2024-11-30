@@ -1,11 +1,22 @@
 #include <iostream>
 
 using namespace std;
-int mod(int a, int b){
-	int v = (b+(a%b))%b;
-	return v;
+
+int functionA(int a){
+	int c = 1;
+	if(a == 0){
+		c = a;
+	}
+	return c;
 }
+
+void functionB(int a){
+	return;
+}
+
 int main(){
-	cout << mod(-2,3) << endl;
+	intptr_t aPtr = reinterpret_cast<intptr_t>(functionA);
+	intptr_t bPtr = reinterpret_cast<intptr_t>(functionB);
+	cout << (bPtr-aPtr) << endl;
 	return 0;
 }

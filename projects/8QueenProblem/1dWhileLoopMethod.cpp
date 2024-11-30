@@ -2,37 +2,6 @@
 #include<cmath>
 using namespace std;
 
-	char bq[5][7] = {
-	{' ', ' ', ' ', ' ', ' ', ' ', ' '},
-	{' ', '\xdb', ' ', '\xdb', ' ', '\xdb', ' '},
-	{' ', '\xdb', '\xdb', '\xdb', '\xdb', '\xdb', ' '},
-	{' ', '\xdb', '\xdb', '\xdb', '\xdb', '\xdb', ' '},
-	{' ', ' ', ' ', ' ', ' ', ' ', ' '},
-	};
-	char wq[5][7] = {
-	{'\xdb', '\xdb', '\xdb', '\xdb', '\xdb', '\xdb', '\xdb'},
-	{'\xdb', ' ', '\xdb', ' ', '\xdb', ' ', '\xdb'},
-	{'\xdb', ' ', ' ', ' ', ' ', ' ', '\xdb'},
-	{'\xdb', ' ', ' ', ' ', ' ', ' ', '\xdb'},
-	{'\xdb', '\xdb', '\xdb', '\xdb', '\xdb', '\xdb', '\xdb'}
-	};
-	char bb[5][7] = {
-	{'\xdb', '\xdb', '\xdb', '\xdb', '\xdb', '\xdb', '\xdb'},
-	{'\xdb', '\xdb', '\xdb', '\xdb', '\xdb', '\xdb', '\xdb'},
-	{'\xdb', '\xdb', '\xdb', '\xdb', '\xdb', '\xdb', '\xdb'},
-	{'\xdb', '\xdb', '\xdb', '\xdb', '\xdb', '\xdb', '\xdb'},
-	{'\xdb', '\xdb', '\xdb', '\xdb', '\xdb', '\xdb', '\xdb'}
-	};
-	char wb[5][7] = {
-	{' ', ' ', ' ', ' ', ' ', ' ', ' '},
-	{' ', ' ', ' ', ' ', ' ', ' ', ' '},
-	{' ', ' ', ' ', ' ', ' ', ' ', ' '},
-	{' ', ' ', ' ', ' ', ' ', ' ', ' '},
-	{' ', ' ', ' ', ' ', ' ', ' ', ' '}
-	};
-	typedef char box[5][7];
-	box * b[8][8]{};
-
 bool test(int board[], int c) {
     	for(int i = 0; i<c; i++){ //This loop will itterate through the previous columns
 		if(board[i]==board[c]){ //This checks if another queens is on this row
@@ -50,49 +19,12 @@ void print(int board[]) {
   // static means the variable is allocated only once during the runtime of the program
 	static int count = 0;
 	cout << "Solution number: " << ++count << endl;
-	// for(int i = 0;i<8;i++){ //Simple nested for loop to print our board
-	// 	for(int j = 0;j<8;j++){
-	// 		cout << ((j==board[i])?"1 ":"0 ");
-	// 	}
-	// 	cout << endl;
-	// }
-	for(int i = 0; i < 8; i++){
-		for(int j = 0; j < 8; j++){
-			if((i+j)%2==0){
-				b[i][j] = &bb;
-			}
-			else {
-				b[i][j] = &wb;
-			}
+	for(int i = 0;i<8;i++){ //Simple nested for loop to print our board
+		for(int j = 0;j<8;j++){
+			cout << ((j==board[i])?"1 ":"0 ");
 		}
+		cout << endl;
 	}
-	for(int i = 0; i < 8; i++){
-		if((i+board[i])%2==0){
-			b[i][board[i]] = &wq;
-		}
-		else {
-			b[i][board[i]] = &bq;
-		}
-	}
-	for(int i = 0; i < 8; i++){
-		for(int k = 0; k < 5; k++){
-			for(int j = 0; j < 8; j++){
-				for(int l = 0; l < 7; l++){
-					cout << (*b[i][j])[k][l];
-				}
-			}
-			cout << endl;
-		}
-	}
-	for(int i = 0; i < 8; i++){
-		if((i+board[i])%2==0){
-			b[i][board[i]] = &bb;
-		}
-		else {
-			b[i][board[i]] = &wb;
-		}
-	}
-	cout << endl;
 	return;
 }
 
