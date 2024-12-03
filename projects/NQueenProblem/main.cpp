@@ -49,6 +49,7 @@ int main()
 			c++;
 		}
 		cout << "There are "<< counter << " solution for " << i << " queens." << endl;
+		delete[] q;
 	}
 	return 0;
 }
