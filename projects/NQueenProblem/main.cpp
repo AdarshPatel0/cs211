@@ -1,4 +1,6 @@
 #include <iostream>
+#include <unistd.h>
+
 using namespace std;
 
 bool test(int board[], int c)
@@ -17,39 +19,45 @@ bool test(int board[], int c)
 	return true;
 }
 
+void simulate(int i)
+{
+	usleep(1000);
+	int *q = new int[i];
+	int counter = 0;
+	int c = 0;
+	q[c] = 0;
+	while (c > -1)
+	{
+		c++;
+		if (c == i)
+		{
+			counter++;
+		}
+		q[c] = -1;
+		while (true)
+		{
+			q[c]++;
+			if (q[c] == i)
+			{
+				c--;
+			}
+			else if (test(q, c))
+			{
+				break;
+			}
+		}
+		
+	}
+	cout << "There are " << counter << " solution for " << i << " queens." << endl;
+	delete[] q;
+	return;
+}
+
 int main()
 {
 	for (int i = 1; i <= 16; i++)
 	{
-		int counter = 0;
-		int*q = new int[i];
-		int c = 0;
-		q[c] = -1;
-		while (true)
-		{
-			if (c == i)
-			{
-				counter++;
-			}
-			q[c] = -1;
-			while (true)
-			{
-				q[c]++;
-				if (q[c] == i)
-				{
-					c--;
-				}
-				else if (test(q, c))
-				{
-					break;
-				}
-			}
-			if (c == -1)
-				break;
-			c++;
-		}
-		cout << "There are "<< counter << " solution for " << i << " queens." << endl;
-		delete[] q;
+		simulate(i);
 	}
 	return 0;
 }
