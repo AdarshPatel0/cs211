@@ -2,38 +2,43 @@
 
 using namespace std;
 
-int ** createArray(int size){
-	int **a = new int*[size];
-	for(int i = 0; i<size; i++){
-		a[i] = new int[size];
-		for(int j = 0; j < size ; j++){
-			a[i][j] = i+j;
+bool test(int board[], int c)
+{
+	for (int i = 0; i < c; i++)
+	{ // This loop will itterate through the previous columns
+		if (board[i] == board[c])
+		{ // This checks if another queens is on this row
+			return false;
+		}
+		if (c - i == abs(board[c] - board[i]))
+		{ // This checks for and queens diagnoly placed, by checking for the difference in row and column are the same
+			return false;
 		}
 	}
-	return a;
-};
-
-void print(int ** a,int size){
-	for(int i = 0; i<size; i++){
-		for(int j = 0; j < size; j++){
-			cout << '\t' << a[i][j];
-		}
-		cout << endl;
-	}
-}
-
-void deleteArray(int ** a,int size){
-	for(int i = 0; i<size; i++){
-		delete a[i];
-	}
-	delete [] a;
+	return true;
 }
 
 int main(){
-	int **a = createArray(5);
-	deleteArray(a,5);
-	a = createArray(8);
-	print(a,8);
-	deleteArray(a,8);
-	return 0;
+	int counter = 0;
+	int q[8] = {};
+	int c = 0;
+	q[c] = 0;
+	while(c>-1){
+		c++;
+		q[c] = -1;
+		if(c==8){
+			c--;
+			counter++;
+		}
+		while(q[c]<8){
+			q[c]++;
+			if(q[c]==8){
+				c--;
+			}
+			else if(test(q, c)){
+				break;
+			}
+		}
+	}
+	cout << counter << endl;
 }

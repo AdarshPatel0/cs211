@@ -21,7 +21,6 @@ bool test(int board[], int c)
 
 void simulate(int i)
 {
-	usleep(1000);
 	int *q = new int[i];
 	int counter = 0;
 	int c = 0;
@@ -29,12 +28,13 @@ void simulate(int i)
 	while (c > -1)
 	{
 		c++;
+		q[c] = -1;
 		if (c == i)
 		{
 			counter++;
+			c--;
 		}
-		q[c] = -1;
-		while (true)
+		while (q[c]<i)
 		{
 			q[c]++;
 			if (q[c] == i)
