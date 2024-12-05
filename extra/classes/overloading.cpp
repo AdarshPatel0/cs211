@@ -18,7 +18,6 @@ class bucket{
 	}
 };
 
-
 ostream& operator <<(ostream &os,const bucket &obj){
 	os << obj.amount;
 	return os;
