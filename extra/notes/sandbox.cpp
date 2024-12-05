@@ -2,43 +2,18 @@
 
 using namespace std;
 
-bool test(int board[], int c)
-{
-	for (int i = 0; i < c; i++)
-	{ // This loop will itterate through the previous columns
-		if (board[i] == board[c])
-		{ // This checks if another queens is on this row
-			return false;
-		}
-		if (c - i == abs(board[c] - board[i]))
-		{ // This checks for and queens diagnoly placed, by checking for the difference in row and column are the same
-			return false;
-		}
-	}
-	return true;
-}
-
 int main(){
-	int counter = 0;
-	int q[8] = {};
-	int c = 0;
-	q[c] = 0;
-	while(c>-1){
-		c++;
-		q[c] = -1;
-		if(c==8){
-			c--;
-			counter++;
-		}
-		while(q[c]<8){
-			q[c]++;
-			if(q[c]==8){
-				c--;
-			}
-			else if(test(q, c)){
-				break;
-			}
+	int ** a = new int*[5];
+	for(int i = 0; i < 5; i++){
+		a[i]= new int[5];
+		for(int j = 0; j < 5; j++){
+			a[i][j] = i+j;
 		}
 	}
-	cout << counter << endl;
+	for(int i = 0; i < 5; i++){
+		for(int j = 0; j < 5; j++){
+			cout << '\t' << a[i][j];
+		}
+		cout << endl;
+	}
 }
