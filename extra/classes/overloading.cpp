@@ -13,6 +13,10 @@ class bucket{
 	public:
 	int amount;
 	string material;
+	bucket(){
+		amount = 0;
+		material = "Water";
+	}
 	bucket(int a = 0,string b = "Water"){
 		amount = a;
 		material = b;
@@ -27,34 +31,35 @@ class bucket{
 		bucket res(abs(amount - obj.amount));
 		return res;
 	}
-	bucket operator==(bucket &obj){
-		if(obj.material == material && obj.amount == amount){
-			return true;
-		}
-		return false;
+	bool operator==(bucket &obj) {
+    return (obj.material == material && obj.amount == amount);
 	}
-	bucket operator!=(bucket &obj){
+	bool operator!=(bucket &obj){
 		if(obj.material != material || obj.amount != amount){
 			return true;
 		}
 		return false;
 	}
-	bucket operator<<(bucket &obj){
+	void operator<<(bucket &obj){
 		checkMaterial(obj);
 		amount+=obj.amount;
 		obj.amount = 0;
-		return amount;
+		return;
 	}
-	bucket operator>>(bucket &obj){
+	void operator>>(bucket &obj){
 		checkMaterial(obj);
 		obj.amount+=amount;
 		amount = 0;
-		return amount;
+		return;
 	}
+	int getAmount(){return amount;}
+	string getMaterial(){return material;}
+	void setAmount(int &n){amount = n;}
+	void setMaterial(string a){material = a;}
 };
 
 ostream &operator <<(ostream &os,const bucket &obj){
-	os << obj.amount;
+	os << obj.getAmount() << " oz of " << obj.getMaterial();
 	return os;
 };
 
@@ -63,8 +68,9 @@ int main(){
 	bucket bucketB(4);
 	bucketA << bucketB;
 	bucketA >> bucketB;
-	cout << bucketA.amount << " " << bucketB.amount << endl;
-	cout << (bucketA==bucketB) << endl;
-	cout << (bucketA!=bucketB) << endl;
+	bucketB.setMaterial("Honey");
+	cout << bucketA << endl << bucketB << endl;
+	cout << (bucketA == bucketB) << endl;
+	cout << (bucketA != bucketB) << endl;
 	return 0;
 }
