@@ -48,7 +48,7 @@ void simulate(int i)
 		}
 		
 	}
-	cout << "There are " << counter << " solution for " << i << " queens." << endl;
+	cout << "There are " << counter << " solutions to the " << i << " queens problem." << endl;
 	delete[] q;
 	return;
 }
