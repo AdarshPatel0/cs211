@@ -33,6 +33,12 @@ class bucket{
 		}
 		return false;
 	}
+	bucket operator!=(bucket &obj){
+		if(obj.material != material || obj.amount != amount){
+			return true;
+		}
+		return false;
+	}
 	bucket operator<<(bucket &obj){
 		checkMaterial(obj);
 		amount+=obj.amount;
@@ -58,5 +64,7 @@ int main(){
 	bucketA << bucketB;
 	bucketA >> bucketB;
 	cout << bucketA.amount << " " << bucketB.amount << endl;
+	cout << (bucketA==bucketB) << endl;
+	cout << (bucketA!=bucketB) << endl;
 	return 0;
 }
