@@ -52,8 +52,8 @@ class bucket{
 		amount = 0;
 		return;
 	}
-	int getAmount(){return amount;}
-	string getMaterial(){return material;}
+	int getAmount() const {return amount;}
+	string getMaterial() const {return material;}
 	void setAmount(int &n){amount = n;}
 	void setMaterial(string a){material = a;}
 };
