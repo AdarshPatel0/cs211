@@ -2,18 +2,24 @@
 
 using namespace std;
 
+class A{
+	private:
+	protected:
+	int a;
+	public:
+	A(){a = 10;}
+	friend class B;
+};
+
+class B:A{
+	private:
+	public:
+	int getA(A& obj){return obj.a;}
+};
+
 int main(){
-	int ** a = new int*[5];
-	for(int i = 0; i < 5; i++){
-		a[i]= new int[5];
-		for(int j = 0; j < 5; j++){
-			a[i][j] = i+j;
-		}
-	}
-	for(int i = 0; i < 5; i++){
-		for(int j = 0; j < 5; j++){
-			cout << a[i][j] << '\t';
-		}
-		cout << endl;
-	}
+	A objA;
+	B objB;
+	cout << objB.getA(objA) << endl;
+	return 0;
 }
